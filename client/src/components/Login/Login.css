@@ -1,0 +1,50 @@
+.login-container {
+    display: grid;
+    grid-template-columns: 1fr;
+    height: clamp(15rem, 20vh, 50rem);
+    width: clamp(15rem, 50vw, 30rem);
+    justify-self: center;
+    align-self: center;
+    align-content: start;
+    border: 1px solid black;
+}
+
+.login-container h2 {
+    margin: 1rem 0 0 1rem;
+}
+.login-container p {
+    justify-self: center;
+}
+
+.login-form {
+    display: grid;
+    margin: 1rem;
+    gap: .5rem;
+}
+
+input {
+    text-indent: .5rem;
+}
+
+input:valid {
+    outline: 1px solid green;
+}
+
+input:invalid {
+    outline: 1px solid red;
+}
+
+.username, .password {
+    height: 2.5rem;
+}
+
+.username {
+    align-self: end;
+}
+
+.login-btn {
+    justify-self: end;
+    align-self: start;
+    height: 2rem;
+    width:4rem;
+}
