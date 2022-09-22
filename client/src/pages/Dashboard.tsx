@@ -1,13 +1,22 @@
 import { useEffect, useState } from 'react';
 
 const Dashboard: React.FC = () => {
+    
+    interface isCustomer {
+        id: string;
+        f_name: string;
+        l_name: string;
+        email: string;
+        phone: number;
+    }
 
-     const [customerData, setCustomerData] = useState([] as any[]);
+    const [customerData, setCustomerData] = useState<isCustomer[]>();
 
-    const getCustomers = async () => {
+    const getCustomers = async ():Promise<isCustomer[]> => {
         const customersRes = await fetch('/api/customers');
-        const json = await customersRes.json();
+        const json:isCustomer[] = await customersRes.json();
         setCustomerData(json);
+        console.log(json);
         return json;
     };
 
@@ -15,22 +24,18 @@ const Dashboard: React.FC = () => {
         return () => {
             getCustomers();
         }
-      }, []);
-      
-      console.log(customerData.map((customer, i) => {
-        return customer.f_name;
-      }));
+    }, []);
 
     return (
         <div className='container'>
             <h2>Dashboard</h2>
-        {!customerData ? (
-            <p>Loading...</p>
-        ) : (
-            customerData.map((customer, i) => {
-                return <p key={i}>{`${customer.f_name} ${customer.l_name}`}</p>
-            })
-        )} 
+            {!customerData ? (
+                <p>Loading...</p>
+            ) : (
+                customerData.map((customer, i) => {
+                    return <p key={i}>{`${customer.f_name} ${customer.l_name}`}</p>
+                })
+            )}
         </div>
     );
 }
