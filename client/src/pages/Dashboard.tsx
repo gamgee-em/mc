@@ -8,22 +8,19 @@ const Dashboard: React.FC = () => {
         l_name: string;
         email: string;
         phone: number;
-    }
+    };
 
     const [customerData, setCustomerData] = useState<isCustomer[]>();
 
-    const getCustomers = async ():Promise<isCustomer[]> => {
-        const customersRes = await fetch('/api/customers');
-        const json:isCustomer[] = await customersRes.json();
-        setCustomerData(json);
-        console.log(json);
-        return json;
-    };
-
     useEffect(() => {
-        return () => {
+        const getCustomers = async ():Promise<isCustomer[]> => {
+            const customersRes = await fetch('/api/customers');
+            const json:isCustomer[] = await customersRes.json();
+            setCustomerData(json);
+            console.log(json);
+            return json;
+        };
             getCustomers();
-        }
     }, []);
 
     return (
