@@ -3,9 +3,9 @@ INSERT INTO customer(f_name, l_name, email, phone)
     ('ronald', 'rad', 'ronald@email.com', '5556669999'),
     ('don', 'duder', 'don@email.com', '5554447777');
 
-INSERT INTO user(f_name, l_name, admin, email)
-    VALUES('Sam', 'Gamgee', true, 'gamgee.em@gmail.com'),
-    ('Bernadette', 'Knowles', false, 'bernadette@email.com');
+INSERT INTO user(f_name, l_name, admin, email, password)
+    VALUES('Sam', 'Gamgee', true, 'gamgee.em@gmail.com', 'test123'),
+    ('Bernadette', 'Knowles', false, 'bernadette@email.com', 'test456');
 
 INSERT INTO job(service_date, starting_address, inbetween_address, ending_address, hourly_rate, tolls, fuel, elevator, servicing_employees, misc_info, customer_id, user_id)
     VALUES(09202022, '123 test st, highland, ny, 12528', '456 test st, highland, ny, 12528', '789 test st, highland, ny, 12528', 169, 20, 50, false, 'sam, bern, krit', 'test misc info', 1, 2),

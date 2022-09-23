@@ -15,7 +15,8 @@ CREATE TABLE user(
     f_name VARCHAR(30) NOT NULL,
     l_name VARCHAR(50) NOT NULL,
     admin BOOLEAN NOT NULL,
-    email VARCHAR(90) NOT NULL
+    email VARCHAR(90) NOT NULL,
+    password VARCHAR(60) NOT NULL
 );
 
 CREATE TABLE job(
