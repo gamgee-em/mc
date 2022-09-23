@@ -1,5 +1,6 @@
 import { Router } from 'express';
-import { 
+import {
+    createJob,
     getAllJobs, 
     getJob, 
     updateJob, 
@@ -7,6 +8,8 @@ import {
 } from '../../controllers/jobs';
 
 const router = Router();
+
+router.post('/', createJob);
 
 router.get('/', getAllJobs);
 router.get('/:id', getJob);

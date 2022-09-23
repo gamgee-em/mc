@@ -19,7 +19,7 @@ export class Job extends Model {
     id!: number
 
     @Column({
-        type: DataType.DATE(),
+        type: DataType.NUMBER,
         allowNull: false,
     })
     service_date!: number;

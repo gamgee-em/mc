@@ -3,10 +3,9 @@ import { JSONB } from 'sequelize';
 import { Job } from '../models/job';
 
 export const createJob: RequestHandler = async (req, res, next) => {
-    const { jobData } = req.body; 
     try {
-        const job = await Job.create({ jobData });
-        return res.status(200).json({ message: `Job ID: ${jobData.id} created:`, data: job})
+        const job = await Job.create( {...req.body} );
+        return res.status(200).json({ message: `Job ID: ${job.id} created:`, data: job})
     } catch (err) {
         if (err) throw err;
     };
